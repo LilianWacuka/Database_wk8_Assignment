@@ -39,6 +39,7 @@ menu_item_ID INT,
 FOREIGN KEY (order_ID) REFERENCES orders(order_ID),
 FOREIGN KEY (menu_item_ID) REFERENCES menuitems(menu_item_ID)
 );
+-- creating table payments
 CREATE TABLE payments(
 payment_ID INT PRIMARY KEY AUTO_INCREMENT,
 amountPaid DECIMAL (10,2),
@@ -52,5 +53,9 @@ CREATE TABLE staff(
 staff_ID INT PRIMARY KEY AUTO_INCREMENT,
 staffName VARCHAR(255),
 staffRole VARCHAR (255),
-phone INT
+phone INT,
+order_ID INT,
+payment_ID INT,
+FOREIGN KEY (order_ID) REFERENCES orders (order_ID),
+FOREIGN KEY (payment_ID) REFERENCES payments(payment_ID)
 );
